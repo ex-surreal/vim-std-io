@@ -1,4 +1,4 @@
-if !exists("g:plugin_ok_loaded")
+if exists("g:plugin_ok_loaded")
     finish
 endif
 let g:plugin_ok_loaded = 1
