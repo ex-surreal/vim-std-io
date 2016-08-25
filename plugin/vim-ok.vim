@@ -1,3 +1,8 @@
+if !exists("g:plugin_ok_loaded")
+    finish
+endif
+let g:plugin_ok_loaded = 1
+
 function! OpenFile(file)
     if a:file ==# ""
         return
@@ -10,3 +15,5 @@ function! OpenFile(file)
 endfunction
 
 command! -nargs=1 OP call OpenFile('<args>')
+
+
