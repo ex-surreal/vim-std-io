@@ -11,7 +11,7 @@ if !exists('g:std_io_window_height')
   let g:std_io_window_height = 15
 endif
 
-let g:std_io_run_commands = {'cpp': "'g++ -Wall --std=c++11 -o ' . expand('%:p:r') . '.o ' . expand('%:p') . ' && ' . expand('%:p:r') . '.o'", 'java': "'javac ' . expand('%:p') . ' && java ' . expand('%:r')", 'python': "'python ' . expand('%:p')" }
+let g:std_io_run_commands = {'cpp': "'g++ -Wall -o ' . expand('%:p:r') . '.o ' . expand('%:p') . ' && ' . expand('%:p:r') . '.o'", 'java': "'javac ' . expand('%:p') . ' && java ' . expand('%:r')", 'python': "'python ' . expand('%:p')" }
 
 let g:std_io_input_history = {}
 let g:std_io_input_buffer = ""
