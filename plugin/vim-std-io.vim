@@ -13,6 +13,13 @@ endif
 
 let g:std_io_run_commands = {'cpp': "'g++ -Wall -o ' . expand('%:p:r') . '.o ' . expand('%:p') . ' && ' . expand('%:p:r') . '.o'", 'java': "'javac ' . expand('%:p') . ' && java ' . expand('%:r')", 'python': "'python ' . expand('%:p')" }
 
+if exists('g:std_io_user_command')
+  let arr = items(g:std_io_user_command)
+  for item in arr
+    let g:std_io_run_commands[item[0]] = item[1]
+  endfor
+endif
+
 let g:std_io_input_history = {}
 let g:std_io_input_buffer = ""
 let g:std_io_output_buffer = ""
