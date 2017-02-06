@@ -4,10 +4,10 @@ This is a vim plugin for running test cases for a single file which is very help
 ### Installation
 Manual installation will need to download /plugin/vim-std-io.vim and source it in your .vimrc
 
-I've used it with vim-plug and it works fine. Should work with other popular plugin manager as well.
+I've used it with vim-plug and it works fine. Should work with other popular plugin managers as well.
 
-For [vim-plug](https://github.com/junegunn/vim-plug), just add this line and run `:PlugInstall`
-`Plug 'ex/surreal'`
+For [vim-plug](https://github.com/junegunn/vim-plug), just add this line `Plug 'ex/surreal'` and run `:PlugInstall`
+
 
 ### Features
 Basically what this plugin do is it will take test case from you in a buffer, run the current file for that case and show the output is another buffer in a clean layout. Also this plugin saves test cases, so you can navigate through history or run all the cases at once!
