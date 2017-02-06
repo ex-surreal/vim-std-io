@@ -1,8 +1,16 @@
 # vim-std-io
 This is a vim plugin for running test cases for a single file which is very helpful for contest programming.
 
+### Installation
+Manual installation will need to download /plugin/vim-std-io.vim and source it in your .vimrc
+
+I've used it with vim-plug and it works fine. Should work with other popular plugin manager as well.
+
+For [vim-plug](https://github.com/junegunn/vim-plug), just add this line and run `:PlugInstall`
+`Plug 'ex/surreal'`
+
 ### Features
-Basically what this plugin do is it will take test case from you in a buffer, run the current file for that case and show the output is another buffer in a clean layout. Also this plugin saves the test case, so you can navigate through history or run all the cases at once!
+Basically what this plugin do is it will take test case from you in a buffer, run the current file for that case and show the output is another buffer in a clean layout. Also this plugin saves test cases, so you can navigate through history or run all the cases at once!
 
 ![Preview](https://raw.githubusercontent.com/ex-surreal/ex-surreal.github.io/master/images/vim-std-io-preview.png)
 
@@ -20,7 +28,7 @@ This plugin provides **4** commands
 
 ### Mappings
 
-These mappings are by default in action. However, you can turn off these by putting `let g:std_io_map_default = 0` before you load this plugin.
+These mappings are by default in action. However, you can turn off these by putting `let g:std_io_map_default = 0` before you load this plugin and set your own preferable mappings.
  
 ```
 nnoremap <silent> <leader>r :IO<cr>
@@ -38,7 +46,7 @@ nnoremap <silent> <leader>n :GO 1<cr>
 
 You can easily use this plugin for c++ or python. To set the command for any new language you must declare a dictionary. For example, if you just want to change the c++ standard to c++14 then you may put this before you load this plugin. `let g:std_io_user_command = {'cpp': "'g++ -Wall --std=c++14 -o ' . expand('%:p:r') . '.o ' . expand('%:p') . ' && ' . expand('%:p:r') . '.o'"}`.
 
-If you wish to use any other language then you've to set the command to run for that language.
+If you wish to use any other language then you've to set the shell command to run for that language.
 
 NOTE: This plugin will run the following vim command to generate the shell command for running the solution `execute let shell_command_to_run = get(g:std_io_user_command, &filetype, '')`. Then `<<<'<input>'` will be appended to `shell_command_to_run`.
 
