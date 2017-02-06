@@ -1,6 +1,8 @@
 # vim-std-io
 This is a vim plugin for running test cases for a single file which is very helpful for contest programming.
 
+![Preview](https://raw.githubusercontent.com/ex-surreal/ex-surreal.github.io/master/images/vim-std-io-preview.png)
+
 ### Installation
 Manual installation will need to download /plugin/vim-std-io.vim and source it in your .vimrc
 
@@ -11,8 +13,6 @@ For [vim-plug](https://github.com/junegunn/vim-plug), just add this line `Plug '
 
 ### Features
 Basically what this plugin do is it will take test case from you in a buffer, run the current file for that case and show the output is another buffer in a clean layout. Also this plugin saves test cases, so you can navigate through history or run all the cases at once!
-
-![Preview](https://raw.githubusercontent.com/ex-surreal/ex-surreal.github.io/master/images/vim-std-io-preview.png)
 
 This plugin provides **4** commands
 
