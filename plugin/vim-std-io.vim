@@ -4,7 +4,7 @@ endif
 let g:std_io_loaded = 1
 
 if !exists('g:std_io_map_default')
-  let g:std_io_map_default = 0
+  let g:std_io_map_default = 1
 endif
 
 if !exists('g:std_io_window_height')
