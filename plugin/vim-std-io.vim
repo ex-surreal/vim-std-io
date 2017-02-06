@@ -22,6 +22,9 @@ let g:std_io_command = ""
 let g:std_io_input_index = -1
 
 function! s:StdIOput_in_buffer(buffer, content)
+  if a:buffer ==# ""
+    return
+  endif
   execut "sbuffer " . a:buffer
   silent 1,$delete _
   silent put! =a:content
@@ -36,18 +39,6 @@ function! s:StdIOpush(input)
   if a:input !=# '' && get(l:temp, -1, '') !=# a:input
     call add(l:temp, a:input)
     let g:std_io_input_history[g:std_io_current_file] = l:temp
-  endif
-endfunction
-
-function! s:StdIOgo(offset)
-  let l:offset = -1
-  if a:offset !=# ''
-    let l:offset = a:offset
-  endif
-  let l:input = get(get(g:std_io_input_history, g:std_io_current_file, []), g:std_io_input_index + l:offset, '')
-  if g:std_io_input_index + l:offset < 0 && l:input !=# ''
-    let g:std_io_input_index += l:offset
-    call s:StdIOput_in_buffer(g:std_io_input_buffer, l:input)
   endif
 endfunction
 
@@ -120,6 +111,21 @@ function! s:StdIOrun_all()
     let l:j += 1
   endfor
   call s:StdIOput_in_buffer(g:std_io_output_buffer, l:o)
+endfunction
+
+function! s:StdIOgo(offset)
+  if g:std_io_input_buffer !=# expand('%') && g:std_io_output_buffer !=# expand('%')
+    call s:StdIOprepare()
+  endif
+  let l:offset = -1
+  if a:offset !=# ''
+    let l:offset = a:offset
+  endif
+  let l:input = get(get(g:std_io_input_history, g:std_io_current_file, []), g:std_io_input_index + l:offset, '')
+  if g:std_io_input_index + l:offset < 0 && l:input !=# ''
+    let g:std_io_input_index += l:offset
+    call s:StdIOput_in_buffer(g:std_io_input_buffer, l:input)
+  endif
 endfunction
 
 function! s:StdIOprepare_and_run(ignore)
