@@ -107,7 +107,7 @@ function! s:StdIOrun_all()
     let l:o .= input . "\n"
     let l:o .= ">>> " . l:j . "\n"
     let t = s:StdIOrun_case(input)
-    let l:o .= l:t . "\n\n"
+    let l:o .= l:t . "\n"
     let l:j += 1
   endfor
   call s:StdIOput_in_buffer(g:std_io_output_buffer, l:o)
