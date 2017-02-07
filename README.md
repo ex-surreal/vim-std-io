@@ -8,7 +8,7 @@ Manual installation will need to download /plugin/vim-std-io.vim and source it i
 
 Best way to install is to use a plugin manager. I've used this with vim-plug and it works fine. Should work with other popular plugin managers as well.
 
-For [vim-plug](https://github.com/junegunn/vim-plug), just add this line `Plug 'ex/surreal'` and run `:PlugInstall`
+For [vim-plug](https://github.com/junegunn/vim-plug), just add this line `Plug 'ex-surreal/vim-std-io'` and run `:PlugInstall`
 
 
 ### Features
