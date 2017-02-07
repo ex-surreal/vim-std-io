@@ -30,17 +30,15 @@ This plugin provides **4** commands
 
 These mappings are by default in action. However, you can turn off these by putting `let g:std_io_map_default = 0` before you load this plugin and set your own preferable mappings.
  
-```
-nnoremap <silent> <leader>r :IO<cr>
-nnoremap <silent> <leader>er :IOI<cr>
-nnoremap <silent> <leader>tr :IO 1<cr>
-nnoremap <silent> <leader>i :execute 'sbuffer' g:std_io_input_buffer<cr>
-nnoremap <silent> <leader>o :execute 'sbuffer' g:std_io_output_buffer<cr>
-nnoremap <silent> <leader>f :execute 'sbuffer' g:std_io_current_file_buffer<cr>
-nnoremap <silent> <leader>q :OI<cr>
-nnoremap <silent> <leader>p :GO<cr>
-nnoremap <silent> <leader>n :GO 1<cr>
-```
+`<leader>r` runs `:IO` command
+`<leader>er` runs `:IOI` command
+`<leader>tr` runs `:IO 1` command
+`<leader>i` selects input buffer
+`<leader>o` selects output buffer
+`<leader>f` selects solution's buffer
+`<leader>q` runs `:OI` command
+`<leader>p` runs `:GO` command
+`<leader>n` runs `:GO 1`
 
 ### Language Support
 
