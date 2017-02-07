@@ -6,7 +6,7 @@ This is a vim plugin for running test cases for a single file which is very help
 ### Installation
 Manual installation will need to download /plugin/vim-std-io.vim and source it in your .vimrc
 
-I've used it with vim-plug and it works fine. Should work with other popular plugin managers as well.
+Best way to install is to use a plugin manager. I've used this with vim-plug and it works fine. Should work with other popular plugin managers as well.
 
 For [vim-plug](https://github.com/junegunn/vim-plug), just add this line `Plug 'ex/surreal'` and run `:PlugInstall`
 
