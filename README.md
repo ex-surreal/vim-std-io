@@ -29,16 +29,16 @@ This plugin provides **4** commands
 ### Mappings
 
 These mappings are by default in action. However, you can turn off these by putting `let g:std_io_map_default = 0` before you load this plugin and set your own preferable mappings.
- 
-`<leader>r` runs `:IO` command
-`<leader>er` runs `:IOI` command
-`<leader>tr` runs `:IO 1` command
-`<leader>i` selects input buffer
-`<leader>o` selects output buffer
-`<leader>f` selects solution's buffer
-`<leader>q` runs `:OI` command
-`<leader>p` runs `:GO` command
-`<leader>n` runs `:GO 1`
+
+1. `<leader>r` runs `:IO` command
+2. `<leader>er` runs `:IOI` command
+3. `<leader>tr` runs `:IO 1` command
+4. `<leader>i` selects input buffer
+5. `<leader>o` selects output buffer
+6. `<leader>f` selects solution's buffer
+7. `<leader>q` runs `:OI` command
+8. `<leader>p` runs `:GO` command
+9. `<leader>n` runs `:GO 1`
 
 ### Language Support
 
