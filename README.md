@@ -14,7 +14,7 @@ For [vim-plug](https://github.com/junegunn/vim-plug), just add this line `Plug '
 ### Features
 Basically what this plugin do is it will take test case from you in a buffer, run the current file for that case and show the output is another buffer in a clean layout. Also this plugin saves test cases, so you can navigate through history or run all the cases at once!
 
-This plugin provides **4** commands
+This plugin provides these commands
 
 1. `:IO` (Takes one or zero argument) Opens up the i/o buffers if not already open and runs the target file with the latest test case (if any). You can then edit the test case and hit `:IO` again to run the target file with the buffer content. If you hit `:IO 1` then the target file will be run even if input buffer is empty [helpful for checking Topcoder problems with _moj_ or similar kind of plugins].
 
@@ -23,6 +23,10 @@ This plugin provides **4** commands
 3. `:GO` (Takes one or zero argument). Shows the previous test case in input buffer, you can then check that test case. If integer argument given then history will be shifted by that argument. For example `:GO 2` will take you 2 cases forward in history and `:GO -3` will take you 3 cases backward in history.
 
 4. `:IOI` Magic! Runs all the test cases you've run previously! Output buffer looks like this
+
+5. `:OP <filename>` Creates a new file with <filename> with predefined template for that file type.
+
+6. `:UT` (Takes one or zero arguments) Opens the template in a new buffer to edit for given file type as argument (or current file type f not given).
 
 ![Preview](https://raw.githubusercontent.com/ex-surreal/ex-surreal.github.io/master/images/vim-std-io-run-all.png)
 
