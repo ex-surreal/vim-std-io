@@ -11,6 +11,8 @@ if !exists('g:std_io_window_height')
   let g:std_io_window_height = 15
 endif
 
+let g:std_io_plugin_dir = expand('<sfile>:p:h')
+
 let g:std_io_run_commands = {'cpp': "'g++ -Wall --std=c++14 -o ' . expand('%:p:r') . '.o ' . expand('%:p') . ' && ' . expand('%:p:r') . '.o'", 'java': "'javac ' . expand('%:p') . ' && java ' . expand('%:r')", 'python': "'python ' . expand('%:p')" }
 
 if exists('g:std_io_user_command')
@@ -32,7 +34,7 @@ function! s:StdIOput_in_buffer(buffer, content)
   if a:buffer ==# ""
     return
   endif
-  execut "sbuffer " . a:buffer
+  execute "sbuffer " . a:buffer
   silent 1,$delete _
   silent put! =a:content
   silent $delete _
@@ -142,10 +144,38 @@ function! s:StdIOprepare_and_run(ignore)
   call s:StdIOrun(a:ignore)
 endfunction
 
+function! s:StdIOOpenFile(file)
+  if !empty(glob(a:file))
+    return
+  endif
+  execute 'edit ' . a:file
+  write
+  let l:template_file = g:std_io_plugin_dir . '/../templates/template.' . &filetype
+  if (filereadable(l:template_file))
+    let l:template = system('cat ' . l:template_file)
+    silent 1,$delete _
+    silent put! =l:template
+    silent $delete _
+    write
+  endif
+  return
+endfunction
+
+function! s:StdIOUpdateTemplate(filetype) 
+  let l:ext = a:filetype
+  if a:filetype ==# ""
+    let l:ext = &filetype
+  endif
+  let l:template_file = g:std_io_plugin_dir . '/../templates/template.' . l:ext
+  execute 'new ' . l:template_file
+endfunction
+
 command! -nargs=? IO call s:StdIOprepare_and_run('<args>')
 command! -nargs=? GO call s:StdIOgo('<args>')
 command! OI call s:StdIOdelete_buffers()
 command! IOI call s:StdIOrun_all()
+command! -nargs=1 -complete=file OP call s:StdIOOpenFile('<args>')
+command! -nargs=? -complete=filetype UT call s:StdIOUpdateTemplate('<args>')
 
 if g:std_io_map_default
   nnoremap <silent> <leader>r :IO<cr>
