@@ -145,10 +145,10 @@ function! s:StdIOprepare_and_run(ignore)
 endfunction
 
 function! s:StdIOOpenFile(file)
+  execute 'edit ' . a:file
   if !empty(glob(a:file))
     return
   endif
-  execute 'edit ' . a:file
   write
   let l:template_file = g:std_io_plugin_dir . '/../templates/template.' . &filetype
   if (filereadable(l:template_file))
