@@ -59,6 +59,7 @@ function! s:StdIOcreate_buffers(height)
     setlocal buftype=nofile noswapfile switchbuf=useopen
     execute "leftabove vnew ". g:std_io_input_buffer
     setlocal buftype=nofile noswapfile switchbuf=useopen
+    nnoremap <buffer> <silent> <leader>] ggdG"*P
   endif
 endfunction
 
@@ -100,6 +101,7 @@ function! s:StdIOrun(ignore_empty_input)
   call s:StdIOpush(l:input)
   let g:std_io_input_index = -1
   call s:StdIOput_in_buffer(g:std_io_output_buffer, s:StdIOrun_case(l:input))
+  execut "sbuffer " . g:std_io_input_buffer
 endfunction
 
 function! s:StdIOrun_all()

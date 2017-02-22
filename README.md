@@ -43,6 +43,7 @@ These mappings are by default in action. However, you can turn off these by putt
 7. `<leader>q` runs `:OI` command
 8. `<leader>p` runs `:GO` command
 9. `<leader>n` runs `:GO 1`
+10. `<leader>]` paste the clipboard content on input buffer [buffer local mapping]
 
 ### Language Support
 
